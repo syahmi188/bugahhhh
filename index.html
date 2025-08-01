@@ -1,1229 +1,223 @@
-<!--- DEV : EKAATZY --><!-- FIX EROR : CHATGPT & DEEPSEK --><!-- KAGA USAH LU SEBAR YA NGENTOT --><!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIRACLE CRASH</title>
-    <style>
-        :root {
-            --primary-color: #ff0000;
-            --dark-color: #1a1a1a;
-            --darker-color: #0d0d0d;
-            --light-color: #f8f9fa;
-            --danger-color: #dc3545;
-            --success-color: #28a745;
-            --warning-color: #ffc107;
-            --info-color: #17a2b8;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: url('images/lv6yqg.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-        
-        .server-status {
-            background-color: var(--success-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: white;
-        }
-        
-        .main-content {
-            display: flex;
-            flex: 1;
-            gap: 20px;
-        }
-        
-        .sidebar {
-            width: 250px;
-            background-color: rgba(26, 26, 26, 0.8);
-            border-radius: 15px;
-            padding: 15px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .content-area {
-            flex: 1;
-            background-color: rgba(26, 26, 26, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .nav-menu {
-            list-style: none;
-        }
-        
-        .nav-menu li {
-            margin-bottom: 10px;
-        }
-        
-        .nav-menu a {
-            display: block;
-            padding: 10px 15px;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-menu a:hover, .nav-menu a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .user-info {
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
-        
-        .user-info p {
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .panel {
-            margin-bottom: 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .panel-header {
-            background-color: var(--primary-color);
-            padding: 10px 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .panel-body {
-            background-color: rgba(13, 13, 13, 0.7);
-            padding: 15px;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            border: 1px solid #444;
-            border-radius: 10px;
-            color: white;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #cc0000;
-        }
-        
-        .btn-danger {
-            background-color: var(--danger-color);
-            color: white;
-        }
-        
-        .btn-success {
-            background-color: var(--success-color);
-            color: white;
-        }
-        
-        .btn-warning {
-            background-color: var(--warning-color);
-            color: black;
-        }
-        
-        .btn-info {
-            background-color: var(--info-color);
-            color: white;
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #444;
-            margin-bottom: 15px;
-        }
-        
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .tab.active {
-            border-bottom: 3px solid var(--primary-color);
-            font-weight: bold;
-        }
-        
-        .attack-option {
-            background-color: rgba(255, 0, 0, 0.1);
-            border: 1px solid var(--primary-color);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .attack-option:hover {
-            background-color: rgba(255, 0, 0, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
-        }
-        
-        .attack-option h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .attack-option p {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-        
-        .user-list {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        
-        .user-list th, .user-list td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #444;
-        }
-        
-        .user-list th {
-            background-color: rgba(255, 0, 0, 0.2);
-        }
-        
-        .user-list tr:hover {
-            background-color: rgba(255, 0, 0, 0.1);
-        }
-        
-        .login-container {
-            max-width: 400px;
-            margin: 50px auto;
-            background-color: rgba(26, 26, 26, 0.9);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-        }
-        
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            border-top: 1px solid var(--primary-color);
-            margin-top: 20px;
-            font-size: 0.8rem;
-        }
-        
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-        
-        .status-online {
-            background-color: var(--success-color);
-            box-shadow: 0 0 10px var(--success-color);
-        }
-        
-        .status-offline {
-            background-color: var(--danger-color);
-            box-shadow: 0 0 10px var(--danger-color);
-        }
-        
-        .console-output {
-            background-color: #000;
-            color: #0f0;
-            font-family: monospace;
-            padding: 10px;
-            border-radius: 5px;
-            height: 200px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-        
-        .console-input {
-            width: 100%;
-            padding: 10px;
-            background-color: #111;
-            border: 1px solid #333;
-            border-radius: 5px;
-            color: #0f0;
-            font-family: monospace;
-        }
-        
-        .profile-pic {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
-            margin: 0 auto 15px;
-            display: block;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background-color: var(--dark-color);
-            border-radius: 15px;
-            padding: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
-        }
-        
-        .modal-title {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px;
-            background-color: var(--success-color);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1001;
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            
-            .tabs {
-                overflow-x: auto;
-            }
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPAMBOT TELEGRAM BY BYEXE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .box {
+      background-color: #111;
+      border: 2px solid red;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px red;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .logo {
+      width: 350px;
+      margin-bottom: 50px;
+      border-radius: 1100px;
+      box-shadow: 0 0 20px red;
+    }
+
+    h1 {
+      color: red;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid red;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: red;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff3333;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      display: none;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #0f0;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 10px;
+      color: #777;
+    }
+
+    #main-container {
+      display: none;
+    }
+
+    .icon-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .icon-container a img {
+      width: 35px;
+      height: 35px;
+      transition: 0.3s;
+    }
+
+    .icon-container a img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px red);
+    }
+  </style>
 </head>
 <body>
-    <div id="login-page" class="login-container">
-        <h2>MIRACLE CRASH</h2>
-        <div class="form-group">
-            <label for="login-username">Username</label>
-            <input type="text" id="login-username" class="form-control" placeholder="Enter username">
-        </div>
-        <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" class="form-control" placeholder="Enter password">
-        </div>
-        <button id="login-btn" class="btn btn-primary btn-block">Login</button>
-        <div id="login-error" style="color: var(--danger-color); margin-top: 10px; display: none;"></div>
+
+  <!-- Login Section -->
+  <div class="box" id="login-container">
+    <img src="https://files.catbox.moe/i4hmsr.png" class="logo" alt="Fsociety Logo">
+    <h1>LOGIN FSOCIETY</h1>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <div class="error" id="login-error">Username atau Password salah</div>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Main Tool Section -->
+  <div class="box" id="main-container">
+    <img src="https://files.catbox.moe/i4hmsr.png" class="logo" alt="Fsociety Logo">
+    <h1>FSOCIETY</h1>
+    <p>SPAMBOT TELEGRAM FREE NOT PREMIUM</p>
+
+    <input type="text" id="token" placeholder="Bot Token">
+    <div class="error" id="err-token">isi token bot!</div>
+
+    <input type="text" id="chatid" placeholder="User Chat ID">
+    <div class="error" id="err-chatid">isi id user!</div>
+
+    <input type="number" id="jumlah" placeholder="Jumlah Spam">
+    <div class="error" id="err-jumlah">isi jumlah spam!</div>
+
+    <textarea id="pesan" placeholder="Pesan untuk dikirim..."></textarea>
+    <div class="error" id="err-pesan">isi pesan spam!</div>
+
+    <button onclick="kirimSpam()">Start Spam</button>
+    <div id="status"></div>
+
+    <div class="icon-container">
+      <a href="https://whatsapp.com/channel/0029Vb6VXlNK5cDJkIjUxi17" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.tiktok.com/@viper_exe9" target="_blank">
+        <img src="https://files.catbox.moe/n9spuh.png" alt="TikTok">
+      </a>
+      <a href="https://arbynotdev.netlify.app/" target="_blank">
+        <img src="https://files.catbox.moe/279tyn.png" alt="Chrome">
+      </a>
     </div>
 
-    <div id="main-page" style="display: none;">
-        <div class="container">
-            <header>
-                <div class="logo">MIRACLE CRASH</div>
-                <div class="server-status">
-                    <span class="status-indicator status-online"></span>
-                    Server Online
-                </div>
-            </header>
+    <div class="footer">© fsocietyXbyexe - 2025</div>
+  </div>
 
-            <div class="main-content">
-                <div class="sidebar">
-                    <img src="images/vvtgus.jpg" alt="Profile" class="profile-pic">
-                    <h3 style="text-align: center;" id="sidebar-username">Admin</h3>
-                    <p style="text-align: center; font-size: 0.8rem; color: #aaa;" id="sidebar-user-type">Owner</p>
-                    
-                    <ul class="nav-menu">
-                        <li><a href="#" class="active" data-tab="dashboard">Dashboard</a></li>
-                        <li><a href="#" data-tab="sender">Add Sender/Pairing</a></li>
-                        <li><a href="#" data-tab="attack">Bug Menu</a></li>
-                        <li><a href="#" data-tab="users" id="users-tab">User Management</a></li>
-                        <li><a href="#" data-tab="console">Console</a></li>
-                        <li><a href="#" data-tab="profile">Profile</a></li>
-                        <li><a href="#" data-tab="settings">Settings</a></li>
-                    </ul>
-                    
-                    <div class="user-info">
-                        <p>Login: <span id="login-date">2023-05-15 14:30</span></p>
-                        <button id="logout-btn" class="btn btn-danger btn-block">Logout</button>
-                    </div>
-                </div>
+  <script>
+    function login() {
+      const user = document.getElementById('username').value.trim()
+      const pass = document.getElementById('password').value.trim()
+      const err = document.getElementById('login-error')
 
-                <div class="content-area">
-                    <!-- Dashboard Tab -->
-                    <div id="dashboard" class="tab-content active">
-                        <div class="panel">
-                            <div class="panel-header">Welcome</div>
-                            <div class="panel-body">
-                                <p>Wellcome to my website miraclecrash bugs</p>
-                                <p>Current server status: <strong>Online</strong></p>
-                                <p>Active users: <strong>12</strong></p>
-                                <p>Last attack: <strong>10 minutes ago</strong></p>
-                            </div>
-                        </div>
-                        
-                        <div class="panel">
-                            <div class="panel-header">Quick Actions</div>
-                            <div class="panel-body">
-                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-                                    <button class="btn btn-primary" data-tab="attack">Start Attack</button>
-                                    <button class="btn btn-success" data-tab="sender">Add Sender</button>
-                                    <button class="btn btn-warning" data-tab="users">Manage Users</button>
-                                    <button class="btn btn-info" data-tab="console">Open Console</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Sender/Pairing Tab -->
-                    <div id="sender" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">Add Sender/Pairing Code</div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="sender-number">Sender WhatsApp Number</label>
-                                    <input type="text" id="sender-number" class="form-control" placeholder="628xxxxx">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pairing-code">Pairing Code</label>
-                                    <input type="text" id="pairing-code" class="form-control" placeholder="Enter pairing code from Ubuntu/Safari">
-                                </div>
-                                <button id="pair-device-btn" class="btn btn-primary">Pair Device</button>
-                                
-                                <h3 style="margin-top: 20px; color: var(--primary-color);">Paired Devices</h3>
-                                <table class="user-list">
-                                    <thead>
-                                        <tr>
-                                            <th>Number</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="paired-devices-list">
-                                        <!-- Will be populated by JavaScript -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bug Menu Tab -->
-                    <div id="attack" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">BUG MENU 🦅</div>
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label for="target-number">Target WhatsApp Number</label>
-                                    <input type="text" id="target-number" class="form-control" placeholder="628xxxxx">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sender-select">Select Sender</label>
-                                    <select id="sender-select" class="form-control">
-                                        <option value="">-- Select Paired Device --</option>
-                                        <!-- Will be populated by JavaScript -->
-                                    </select>
-                                </div>
-                                
-                                <h3 style="margin-top: 20px; color: var(--primary-color);">Attack Methods</h3>
-                                
-                                <div class="attack-option">
-                                    <h3>1. FORCE CLOSE INVIS 👻</h3>
-                                    <p>CRASH + MENTAL MENTAL.</p>
-                                    <p>Messages won't be visible to sender, only to target.</p>
-                                    <button class="btn btn-danger launch-attack" data-type="force-close">Sending Bugs</button>
-                                </div>
-                                
-                                <div class="attack-option">
-                                    <h3>2. Crash UI 🥵</h3>
-                                    <p>CRASH FOR ANDROID.</p>
-                                    <p>Messages won't be visible to sender, only to target.</p>
-                                    <button class="btn btn-danger launch-attack" data-type="crash-ui">Sending Bugs</button>
-                                </div>
-                                
-                                <div class="attack-option">
-                                    <h3>3. Crash iOS 🕊</h3>
-                                    <p>KILL IPHONE ATTACK.</p>
-                                    <p>Messages won't be visible to sender, only to target.</p>
-                                    <button class="btn btn-danger launch-attack" data-type="crash-ios">Sending Bugs</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- User Management Tab -->
-                    <div id="users" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">User Management</div>
-                            <div class="panel-body">
-                                <div class="tabs">
-                                    <div class="tab active" data-user-tab="list">User List</div>
-                                    <div class="tab" data-user-tab="add">Add User</div>
-                                </div>
-                                
-                                <div id="user-list-tab" class="user-tab-content active">
-                                    <table class="user-list">
-                                        <thead>
-                                            <tr>
-                                                <th>Username</th>
-                                                <th>Type</th>
-                                                <th>Last Login</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="users-list">
-                                            <!-- Will be populated by JavaScript -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <div id="add-user-tab" class="user-tab-content">
-                                    <div class="form-group">
-                                        <label for="new-username">Username</label>
-                                        <input type="text" id="new-username" class="form-control" placeholder="Enter username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="new-password">Password</label>
-                                        <input type="password" id="new-password" class="form-control" placeholder="Enter password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-type">User Type</label>
-                                        <select id="user-type" class="form-control">
-                                            <option value="classic">Classic</option>
-                                            <option value="reseller">Reseller</option>
-                                            <option value="vip">VIP</option>
-                                            <option value="owner">Owner</option>
-                                        </select>
-                                    </div>
-                                    <button id="add-user-btn" class="btn btn-success">Add User</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Console Tab -->
-                    <div id="console" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">Console</div>
-                            <div class="panel-body">
-                                <div class="console-output" id="console-output">
-                                    > System initialized<br>
-                                    > Welcome to MIRACLECRASH console<br>
-                                    > Type 'help' for commands<br>
-                                </div>
-                                <input type="text" class="console-input" id="console-input" placeholder="Enter command...">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Profile Tab -->
-                    <div id="profile" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">Profile Information</div>
-                            <div class="panel-body">
-                                <div style="text-align: center;">
-                                    <img src="images/vvtgus.jpg" alt="Profile" class="profile-pic" id="profile-picture">
-                                    <button class="btn btn-info" style="margin-bottom: 20px;" id="change-profile-pic">Change Picture</button>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="profile-username">Username</label>
-                                    <input type="text" id="profile-username" class="form-control" readonly="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="profile-user-type">User Type</label>
-                                    <input type="text" id="profile-user-type" class="form-control" readonly="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="profile-last-login">Last Login</label>
-                                    <input type="text" id="profile-last-login" class="form-control" readonly="">
-                                </div>
-                                
-                                <h3 style="margin-top: 20px; color: var(--primary-color);">Change Password</h3>
-                                <div class="form-group">
-                                    <label for="current-password">Current Password</label>
-                                    <input type="password" id="current-password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="new-password-profile">New Password</label>
-                                    <input type="password" id="new-password-profile" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirm-password">Confirm Password</label>
-                                    <input type="password" id="confirm-password" class="form-control">
-                                </div>
-                                <button id="change-password-btn" class="btn btn-primary">Change Password</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Settings Tab -->
-                    <div id="settings" class="tab-content">
-                        <div class="panel">
-                            <div class="panel-header">Settings</div>
-                            <div class="panel-body">
-                                <div class="form-group">                                    
-                                    <label for="notification-sound">Notification Sound</label>
-                                    <select id="notification-sound" class="form-control">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                                <button id="save-settings-btn" class="btn btn-primary">Save Settings</button>
-                                
-                                <h3 style="margin-top: 20px; color: var(--primary-color);">Contact Developer</h3>
-                                <p>For support or issues, contact the developer:</p>
-                                <p>WhatsApp: <a href="https://wa.me/6285719638107" style="color: var(--primary-color);">wa.me/6285719638107</a></p>
-                                <p>Telegram: <a href="https://t.me/EkaaTzy1" style="color: var(--primary-color);">t.me/EkaaTzy1</a></p>
-                                
-                                <h3 style="margin-top: 20px; color: var(--primary-color);">Credits</h3>
-                                <p>ekaatzy</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      if (user === 'byexe610' && pass === '610p123') {
+        document.getElementById('login-container').style.display = 'none'
+        document.getElementById('main-container').style.display = 'block'
+      } else {
+        err.style.display = 'block'
+      }
+    }
 
-            <footer>
-                MIRACLECRASH � 2025 | EKAATZY
-            </footer>
-        </div>
-    </div>
-    
-    <div id="notification" class="notification"></div>
-    
-    <div id="pairing-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Pairing Instructions</div>
-                <button class="close-modal">�</button>
-            </div>
-            <div class="panel-body">
-                <p>To pair your device:</p>
-                <ol>
-                    <li>Open WhatsApp Web on Ubuntu or Safari</li>
-                    <li>Scan the QR code</li>
-                    <li>Enter the pairing code shown on your device below</li>
-                </ol>
-                <div class="form-group">
-                    <label for="modal-pairing-code">Pairing Code</label>
-                    <input type="text" id="modal-pairing-code" class="form-control" placeholder="Enter pairing code">
-                </div>
-                <button id="confirm-pairing-btn" class="btn btn-primary">Confirm Pairing</button>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        // Sample user data
-        const users = {
-            "khezn": { password: "612010", type: "owner", lastLogin: "2027-09-17 14:30" }
-        };
-        
-        // Sample paired devices
-        let pairedDevices = [
-            { number: "628123456789", status: "active" }
-        ];
-        
-        // Current user
-        let currentUser = null;
-        
-        // DOM ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Login functionality
-            document.getElementById('login-btn').addEventListener('click', function() {
-                const username = document.getElementById('login-username').value;
-                const password = document.getElementById('login-password').value;
-                
-                if (users[username] && users[username].password === password) {
-                    currentUser = {
-                        username: username,
-                        type: users[username].type,
-                        lastLogin: new Date().toLocaleString()
-                    };
-                    
-                    // Update user's last login
-                    users[username].lastLogin = currentUser.lastLogin;
-                    
-                    // Hide login page, show main page
-                    document.getElementById('login-page').style.display = 'none';
-                    document.getElementById('main-page').style.display = 'block';
-                    
-                    // Update UI with user info
-                    updateUserInfo();
-                    
-                    // Show welcome notification
-                    showNotification('Login successful! Welcome back, ' + username);
-                } else {
-                    document.getElementById('login-error').textContent = 'Invalid username or password';
-                    document.getElementById('login-error').style.display = 'block';
-                }
-            });
-            
-            // Tab switching
-            document.querySelectorAll('[data-tab]').forEach(tab => {
-                tab.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Update active tab in sidebar
-                    document.querySelectorAll('.nav-menu a').forEach(a => {
-                        a.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // Show corresponding content
-                    const tabId = this.getAttribute('data-tab');
-                    document.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    document.getElementById(tabId).classList.add('active');
-                    
-                    // Special handling for certain tabs
-                    if (tabId === 'users') {
-                        // Reset user management tab to list view
-                        document.querySelectorAll('[data-user-tab]').forEach(t => {
-                            t.classList.remove('active');
-                        });
-                        document.querySelector('[data-user-tab="list"]').classList.add('active');
-                        
-                        document.querySelectorAll('.user-tab-content').forEach(c => {
-                            c.classList.remove('active');
-                        });
-                        document.getElementById('user-list-tab').classList.add('active');
-                        
-                        // Update users list
-                        updateUsersList();
-                    }
-                });
-            });
-            
-            // User management tabs
-            document.querySelectorAll('[data-user-tab]').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    document.querySelectorAll('[data-user-tab]').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    const tabId = this.getAttribute('data-user-tab');
-                    document.querySelectorAll('.user-tab-content').forEach(c => {
-                        c.classList.remove('active');
-                    });
-                    document.getElementById(tabId + '-user-tab').classList.add('active');
-                });
-            });
-            
-            // Add user button
-            document.getElementById('add-user-btn').addEventListener('click', function() {
-                const username = document.getElementById('new-username').value;
-                const password = document.getElementById('new-password').value;
-                const type = document.getElementById('user-type').value;
-                
-                if (username && password) {
-                    // Check user permissions
-                    if (currentUser.type === 'classic') {
-                        showNotification('You do not have permission to add users', 'error');
-                        return;
-                    }
-                    
-                    if (currentUser.type === 'reseller' && (type === 'reseller' || type === 'owner')) {
-                        showNotification('Resellers can only add classic and VIP users', 'error');
-                        return;
-                    }
-                    
-                    if ((currentUser.type === 'owner' || currentUser.type === 'vip') && type === 'owner') {
-                        showNotification('You cannot add owner users', 'error');
-                        return;
-                    }
-                    
-                    // Add user
-                    users[username] = {
-                        password: password,
-                        type: type,
-                        lastLogin: 'Never'
-                    };
-                    
-                    // Clear form
-                    document.getElementById('new-username').value = '';
-                    document.getElementById('new-password').value = '';
-                    document.getElementById('user-type').value = 'classic';
-                    
-                    // Update users list
-                    updateUsersList();
-                    
-                    // Switch to list view
-                    document.querySelector('[data-user-tab="list"]').click();
-                    
-                    showNotification('User ' + username + ' added successfully');
-                } else {
-                    showNotification('Please fill all fields', 'error');
-                }
-            });
-            
-            // Pair device button
-            document.getElementById('pair-device-btn').addEventListener('click', function() {
-                const number = document.getElementById('sender-number').value;
-                
-                if (number) {
-                    // Show pairing modal
-                    document.getElementById('pairing-modal').style.display = 'flex';
-                } else {
-                    showNotification('Please enter a phone number', 'error');
-                }
-            });
-            
-            // Confirm pairing button
-            document.getElementById('confirm-pairing-btn').addEventListener('click', function() {
-                const number = document.getElementById('sender-number').value;
-                const pairingCode = document.getElementById('modal-pairing-code').value;
-                
-                if (number && pairingCode) {
-                    // Add to paired devices
-                    pairedDevices.push({
-                        number: number,
-                        status: 'active'
-                    });
-                    
-                    // Update paired devices list
-                    updatePairedDevicesList();
-                    
-                    // Update sender select in attack tab
-                    updateSenderSelect();
-                    
-                    // Hide modal
-                    document.getElementById('pairing-modal').style.display = 'none';
-                    document.getElementById('modal-pairing-code').value = '';
-                    
-                    showNotification('Device ' + number + ' paired successfully');
-                } else {
-                    showNotification('Please enter pairing code', 'error');
-                }
-            });
-            
-            // Close modal button
-            document.querySelector('.close-modal').addEventListener('click', function() {
-                document.getElementById('pairing-modal').style.display = 'none';
-            });
-            
-            // Sending Bugs buttons
-            document.querySelectorAll('.launch-attack').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const target = document.getElementById('target-number').value;
-                    const sender = document.getElementById('sender-select').value;
-                    const attackType = this.getAttribute('data-type');
-                    
-                    if (!target) {
-                        showNotification('Please enter target number', 'error');
-                        return;
-                    }
-                    
-                    if (!sender) {
-                        showNotification('Please select a sender device', 'error');
-                        return;
-                    }
-                    
-                    // Simulate attack
-                    let message, count;
-                    switch(attackType) {
-                        case 'force-close':
-                            message = '\\u0000'.repeat(999999999);
-                            count = 100;
-                            break;
-                        case 'crash-ui':
-                            message = 'ྫྷꦽꦽྫྷꦾꦾꦾྫྷꦽꦾ'.repeat(999999977777777777);
-                            count = 200;
-                            break;
-                        case 'crash-ios':
-                            message = 'ྫྷꦽꦽྫྷꦾꦾꦾྫྷꦽꦾྫྷꦽꦽྫྷꦾꦾꦾྫྷꦽꦾྫྷꦽꦽྫྷꦾꦾꦾྫྷꦽꦾ\\u0000'.repeat(9999999999999);
-                            count = 100;
-                            break;
-                    }
-                    
-                    // Add to console
-                    addConsoleMessage(`> Launching ${attackType} attack on ${target} using ${sender}`);
-                    addConsoleMessage(`> Sending ${count} invisible messages...`);
-                    
-                    // Simulate progress
-                    let progress = 0;
-                    const interval = setInterval(() => {
-                        progress += 10;
-                        addConsoleMessage(`> Progress: ${progress}%`);
-                        
-                        if (progress >= 100) {
-                            clearInterval(interval);
-                            addConsoleMessage(`> Attack completed successfully!`);
-                            showNotification(`Attack on ${target} completed`);
-                        }
-                    }, 500);
-                });
-            });
-            
-            // Change password button
-            document.getElementById('change-password-btn').addEventListener('click', function() {
-                const currentPass = document.getElementById('current-password').value;
-                const newPass = document.getElementById('new-password-profile').value;
-                const confirmPass = document.getElementById('confirm-password').value;
-                
-                if (!currentPass || !newPass || !confirmPass) {
-                    showNotification('Please fill all fields', 'error');
-                    return;
-                }
-                
-                if (currentPass !== users[currentUser.username].password) {
-                    showNotification('Current password is incorrect', 'error');
-                    return;
-                }
-                
-                if (newPass !== confirmPass) {
-                    showNotification('New passwords do not match', 'error');
-                    return;
-                }
-                
-                // Update password
-                users[currentUser.username].password = newPass;
-                
-                // Clear form
-                document.getElementById('current-password').value = '';
-                document.getElementById('new-password-profile').value = '';
-                document.getElementById('confirm-password').value = '';
-                
-                showNotification('Password changed successfully');
-            });
-            
-            // Console input
-            document.getElementById('console-input').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    const command = this.value;
-                    addConsoleMessage(`> ${command}`);
-                    
-                    // Process command
-                    if (command === 'help') {
-                        addConsoleMessage('Available commands:');
-                        addConsoleMessage('help - Show this help');
-                        addConsoleMessage('clear - Clear console');
-                        addConsoleMessage('users - List all users');
-                        addConsoleMessage('devices - List paired devices');
-                        addConsoleMessage('attack - Start attack');
-                    } else if (command === 'clear') {
-                        document.getElementById('console-output').innerHTML = '> Console cleared<br>';
-                    } else if (command === 'users') {
-                        addConsoleMessage('User list:');
-                        for (const user in users) {
-                            addConsoleMessage(`${user} (${users[user].type}) - Last login: ${users[user].lastLogin}`);
-                        }
-                    } else if (command === 'devices') {
-                        addConsoleMessage('Paired devices:');
-                        pairedDevices.forEach(device => {
-                            addConsoleMessage(`${device.number} - ${device.status}`);
-                        });
-                    } else if (command === 'attack') {
-                        addConsoleMessage('Use the Bug Menu tab to Sending Bugss');
-                    } else {
-                        addConsoleMessage('Unknown command. Type "help" for available commands');
-                    }
-                    
-                    this.value = '';
-                }
-            });
-            
-            // Logout button
-            document.getElementById('logout-btn').addEventListener('click', function() {
-                currentUser = null;
-                document.getElementById('main-page').style.display = 'none';
-                document.getElementById('login-page').style.display = 'block';
-                document.getElementById('login-username').value = '';
-                document.getElementById('login-password').value = '';
-                document.getElementById('login-error').style.display = 'none';
-            });
-            
-            // Quick action buttons
-            document.querySelectorAll('[data-tab].btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
-                    document.querySelector(`.nav-menu a[data-tab="${tabId}"]`).click();
-                });
-            });
-        });
-        
-        // Update user info in sidebar and profile
-        function updateUserInfo() {
-            if (!currentUser) return;
-            
-            // Sidebar info
-            document.getElementById('sidebar-username').textContent = currentUser.username;
-            document.getElementById('sidebar-user-type').textContent = capitalizeFirstLetter(currentUser.type);
-            document.getElementById('login-date').textContent = currentUser.lastLogin;
-            
-            // Profile info
-            document.getElementById('profile-username').value = currentUser.username;
-            document.getElementById('profile-user-type').value = capitalizeFirstLetter(currentUser.type);
-            document.getElementById('profile-last-login').value = currentUser.lastLogin;
-            
-            // Show/hide elements based on user type
-            if (currentUser.type === 'classic') {
-                document.getElementById('users-tab').style.display = 'none';
-            } else {
-                document.getElementById('users-tab').style.display = 'block';
-            }
-        }
-        
-        // Update users list
-        function updateUsersList() {
-            const tbody = document.getElementById('users-list');
-            tbody.innerHTML = '';
-            
-            for (const username in users) {
-                const user = users[username];
-                
-                // Skip if current user is classic and not viewing their own profile
-                if (currentUser.type === 'classic' && username !== currentUser.username) {
-                    continue;
-                }
-                
-                // Skip if current user is reseller and trying to view reseller/owner
-                if (currentUser.type === 'reseller' && (user.type === 'reseller' || user.type === 'owner')) {
-                    continue;
-                }
-                
-                const tr = document.createElement('tr');
-                
-                const tdUsername = document.createElement('td');
-                tdUsername.textContent = username;
-                tr.appendChild(tdUsername);
-                
-                const tdType = document.createElement('td');
-                tdType.textContent = capitalizeFirstLetter(user.type);
-                tr.appendChild(tdType);
-                
-                const tdLastLogin = document.createElement('td');
-                tdLastLogin.textContent = user.lastLogin;
-                tr.appendChild(tdLastLogin);
-                
-                const tdActions = document.createElement('td');
-                
-                // Add delete button if user has permission
-                if (currentUser.type !== 'classic' && 
-                    (currentUser.type === 'owner' || currentUser.type === 'vip' || 
-                     (currentUser.type === 'reseller' && user.type === 'classic'))) {
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    deleteBtn.className = 'btn btn-danger btn-sm';
-                    deleteBtn.style.marginRight = '5px';
-                    deleteBtn.addEventListener('click', function() {
-                        if (confirm(`Are you sure you want to delete user ${username}?`)) {
-                            delete users[username];
-                            updateUsersList();
-                            showNotification(`User ${username} deleted`);
-                        }
-                    });
-                    tdActions.appendChild(deleteBtn);
-                }
-                
-                tr.appendChild(tdActions);
-                tbody.appendChild(tr);
-            }
-        }
-        
-        // Update paired devices list
-        function updatePairedDevicesList() {
-            const tbody = document.getElementById('paired-devices-list');
-            tbody.innerHTML = '';
-            
-            pairedDevices.forEach(device => {
-                const tr = document.createElement('tr');
-                
-                const tdNumber = document.createElement('td');
-                tdNumber.textContent = device.number;
-                tr.appendChild(tdNumber);
-                
-                const tdStatus = document.createElement('td');
-                const statusSpan = document.createElement('span');
-                statusSpan.className = `status-indicator status-${device.status === 'active' ? 'online' : 'offline'}`;
-                tdStatus.appendChild(statusSpan);
-                tdStatus.appendChild(document.createTextNode(capitalizeFirstLetter(device.status)));
-                tr.appendChild(tdStatus);
-                
-                const tdActions = document.createElement('td');
-                const deleteBtn = document.createElement('button');
-                deleteBtn.textContent = 'Unpair';
-                deleteBtn.className = 'btn btn-danger btn-sm';
-                deleteBtn.addEventListener('click', function() {
-                    if (confirm(`Are you sure you want to unpair device ${device.number}?`)) {
-                        pairedDevices = pairedDevices.filter(d => d.number !== device.number);
-                        updatePairedDevicesList();
-                        updateSenderSelect();
-                        showNotification(`Device ${device.number} unpaired`);
-                    }
-                });
-                tdActions.appendChild(deleteBtn);
-                tr.appendChild(tdActions);
-                
-                tbody.appendChild(tr);
-            });
-        }
-        
-        // Update sender select in attack tab
-        function updateSenderSelect() {
-            const select = document.getElementById('sender-select');
-            select.innerHTML = '<option value="">-- Select Paired Device --</option>';
-            
-            pairedDevices.forEach(device => {
-                if (device.status === 'active') {
-                    const option = document.createElement('option');
-                    option.value = device.number;
-                    option.textContent = device.number;
-                    select.appendChild(option);
-                }
-            });
-        }
-        
-        // Add message to console
-        function addConsoleMessage(message) {
-            const consoleOutput = document.getElementById('console-output');
-            consoleOutput.innerHTML += message + '<br>';
-            consoleOutput.scrollTop = consoleOutput.scrollHeight;
-        }
-        
-        // Show notification
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.backgroundColor = type === 'success' ? 'var(--success-color)' : 'var(--danger-color)';
-            notification.style.display = 'block';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Helper function to capitalize first letter
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-        
-        // Initialize UI
-        function initUI() {
-            updatePairedDevicesList();
-            updateSenderSelect();
-        }
-        
-        // Call init when DOM is loaded
-        initUI();
-    </script>
+    function showError(id, condition) {
+      const el = document.getElementById(id)
+      el.style.display = condition ? 'block' : 'none'
+      return condition
+    }
 
-</body></html>
+    async function kirimSpam() {
+      const token = document.getElementById('token').value.trim()
+      const chatid = document.getElementById('chatid').value.trim()
+      const pesan = document.getElementById('pesan').value.trim()
+      const jumlah = parseInt(document.getElementById('jumlah').value)
+      const status = document.getElementById('status')
+      const btn = document.querySelector('#main-container button')
+
+      const hasError =
+        showError('err-token', !token) |
+        showError('err-chatid', !chatid) |
+        showError('err-jumlah', isNaN(jumlah) || jumlah < 1) |
+        showError('err-pesan', !pesan)
+
+      if (hasError) return
+
+      btn.disabled = true
+      status.innerText = 'mengirim...'
+
+      let sukses = 0, gagal = 0
+
+      for (let i = 0; i < jumlah; i++) {
+        try {
+          const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatid, text: pesan })
+          })
+          const json = await res.json()
+          json.ok ? sukses++ : gagal++
+        } catch {
+          gagal++
+        }
+        await new Promise(r => setTimeout(r, 50))
+      }
+
+      status.innerText = `Selesai: ${sukses} berhasil, ${gagal} gagal.`
+      btn.disabled = false
+    }
+  </script>
+</body>
+</html>
